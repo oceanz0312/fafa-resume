@@ -48,6 +48,10 @@ body {
 .no-shrink {
   flex-shrink: 0;
 }
+#root {
+  background: #000;
+}
+
 .desktop_1 {
   isolation: isolate;
   background-color: #000;
@@ -178,7 +182,7 @@ body {
   margin: -1px;
 }
 .text_3 {
-  padding-left: 30px;
+  padding-left: 20px;
   width: 100%;
   text-align: left;
   color: #fff;
@@ -204,6 +208,7 @@ body {
   margin-right: 0;
   display: flex;
   position: relative;
+  cursor: pointer;
 }
 .rectangle_3464450 {
   z-index: 4;
@@ -218,7 +223,6 @@ body {
   margin-left: 5px;
   display: flex;
   position: relative;
-  transform: rotate(344deg);
 }
 .text_4 {
   color: #1c1c1c;
@@ -246,7 +250,6 @@ body {
   margin-left: -104px;
   display: flex;
   position: relative;
-  transform: rotate(305deg);
 }
 .text_5 {
   color: #1c1c1c;
@@ -270,7 +273,6 @@ body {
   margin-top: 50px;
   margin-left: -22px;
   position: relative;
-  transform: rotate(22deg);
   box-shadow: inset 0 -6px 21px #0f40e2;
 }
 .group_631969 {
@@ -292,7 +294,6 @@ body {
   font-weight: 375;
   line-height: 24px;
   position: relative;
-  transform: rotate(22deg);
 }
 .rectangle_3464454 {
   z-index: 1;
@@ -306,7 +307,6 @@ body {
   margin-left: -100px;
   display: flex;
   position: relative;
-  transform: rotate(0);
 }
 .div {
   white-space: pre;
@@ -345,7 +345,6 @@ body {
   margin-left: -283px;
   display: flex;
   position: relative;
-  transform: rotate(359deg);
 }
 .text_9 {
   color: #1c1c1c;
@@ -1390,4 +1389,99 @@ body {
 /* Ensure smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* ========================================
+   MAGNETIC REPULSION EFFECTS
+   ======================================== */
+
+/* 为排斥元素添加样式，保持原有transform */
+.rectangle_3464450 {
+  transition: transform 0.2s ease-out;
+  transform: translate(var(--offset-x, 0px), var(--offset-y, 0px))
+    rotate(344deg);
+}
+
+.rectangle_3464451 {
+  transition: transform 0.2s ease-out;
+  transform: translate(var(--offset-x, 0px), var(--offset-y, 0px))
+    rotate(305deg);
+}
+
+.rectangle_3464449 {
+  transition: transform 0.2s ease-out;
+  transform: translate(var(--offset-x, 0px), var(--offset-y, 0px)) rotate(22deg);
+}
+
+.group_631969 {
+  transition: transform 0.2s ease-out;
+  transform: translate(var(--offset-x, 0px), var(--offset-y, 0px));
+}
+
+.text_6 {
+  transition: transform 0.2s ease-out;
+  transform: translate(var(--offset-x, 0px), var(--offset-y, 0px)) rotate(22deg);
+}
+
+.rectangle_3464454 {
+  transition: transform 0.2s ease-out;
+  transform: translate(var(--offset-x, 0px), var(--offset-y, 0px)) rotate(0deg);
+}
+
+.rectangle_3464452 {
+  transition: transform 0.2s ease-out;
+  transform: translate(var(--offset-x, 0px), var(--offset-y, 0px))
+    rotate(359deg);
+}
+
+.ellipse_3466 {
+  transition: transform 0.2s ease-out;
+  transform: translate(var(--offset-x, 0px), var(--offset-y, 0px));
+}
+
+.rectangle_3464453 {
+  transition: transform 0.2s ease-out;
+  transform: translate(var(--offset-x, 0px), var(--offset-y, 0px)) rotate(35deg);
+}
+
+.text_10 {
+  transition: transform 0.2s ease-out;
+  transform: translate(var(--offset-x, 0px), var(--offset-y, 0px)) rotate(35deg);
+}
+
+.image_48 {
+  transition: transform 0.2s ease-out;
+  transform: translate(var(--offset-x, 0px), var(--offset-y, 0px));
+}
+
+.rectangle_3464455 {
+  transition: transform 0.2s ease-out;
+  transform: translate(var(--offset-x, 0px), var(--offset-y, 0px))
+    rotate(355deg);
+}
+
+.text_11 {
+  transition: transform 0.2s ease-out;
+  transform: translate(var(--offset-x, 0px), var(--offset-y, 0px))
+    rotate(355deg);
+}
+
+.image_49 {
+  transition: transform 0.2s ease-out;
+  transform: translate(var(--offset-x, 0px), var(--offset-y, 0px));
+}
+
+.rectangle_3464456 {
+  transition: transform 0.2s ease-out;
+  transform: translate(var(--offset-x, 0px), var(--offset-y, 0px)) rotate(0deg);
+}
+
+.text_12 {
+  transition: transform 0.2s ease-out;
+  transform: translate(var(--offset-x, 0px), var(--offset-y, 0px));
+}
+
+.image_50 {
+  transition: transform 0.2s ease-out;
+  transform: translate(var(--offset-x, 0px), var(--offset-y, 0px));
 }

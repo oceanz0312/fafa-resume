@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import './index.css';
 
 const App = () => {
+  const frameRef = useRef(null);
+
   useEffect(() => {
     const handleMouseMove = (e) => {
       document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
@@ -13,6 +15,82 @@ const App = () => {
 
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
+  // 磁性排斥效果
+  useEffect(() => {
+    const frame = frameRef.current;
+    if (!frame) return;
+
+    const calculateRepulsion = (elementPos, mousePos, repulsionRadius = 120) => {
+      const dx = elementPos.x - mousePos.x;
+      const dy = elementPos.y - mousePos.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      
+      if (distance < repulsionRadius && distance > 0) {
+        const force = (repulsionRadius - distance) / repulsionRadius;
+        const maxDisplacement = 50;
+        
+        return {
+          x: (dx / distance) * force * maxDisplacement,
+          y: (dy / distance) * force * maxDisplacement
+        };
+      }
+      return { x: 0, y: 0 };
+    };
+
+    const handleFrameMouseMove = (e) => {
+      const rect = frame.getBoundingClientRect();
+      const mousePos = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      };
+
+      // 获取所有需要排斥的元素
+      const repulsiveElements = frame.querySelectorAll(
+        '.rectangle_3464450, .rectangle_3464451, .rectangle_3464449, ' +
+        '.group_631969, .text_6, .rectangle_3464454, .rectangle_3464452, ' +
+        '.ellipse_3466, .rectangle_3464453, .text_10, .image_48, ' +
+        '.rectangle_3464455, .text_11, .image_49, .rectangle_3464456, ' +
+        '.text_12, .image_50'
+      );
+
+      repulsiveElements.forEach(element => {
+        const elementRect = element.getBoundingClientRect();
+        const elementPos = {
+          x: elementRect.left + elementRect.width / 2 - rect.left,
+          y: elementRect.top + elementRect.height / 2 - rect.top
+        };
+        
+        const repulsion = calculateRepulsion(elementPos, mousePos);
+        element.style.setProperty('--offset-x', `${repulsion.x}px`);
+        element.style.setProperty('--offset-y', `${repulsion.y}px`);
+      });
+    };
+
+    const handleFrameMouseLeave = () => {
+      // 重置所有元素位置
+      const repulsiveElements = frame.querySelectorAll(
+        '.rectangle_3464450, .rectangle_3464451, .rectangle_3464449, ' +
+        '.group_631969, .text_6, .rectangle_3464454, .rectangle_3464452, ' +
+        '.ellipse_3466, .rectangle_3464453, .text_10, .image_48, ' +
+        '.rectangle_3464455, .text_11, .image_49, .rectangle_3464456, ' +
+        '.text_12, .image_50'
+      );
+
+      repulsiveElements.forEach(element => {
+        element.style.setProperty('--offset-x', '0px');
+        element.style.setProperty('--offset-y', '0px');
+      });
+    };
+
+    frame.addEventListener('mousemove', handleFrameMouseMove);
+    frame.addEventListener('mouseleave', handleFrameMouseLeave);
+
+    return () => {
+      frame.removeEventListener('mousemove', handleFrameMouseMove);
+      frame.removeEventListener('mouseleave', handleFrameMouseLeave);
     };
   }, []);
 
@@ -40,7 +118,7 @@ const App = () => {
         </div>
         <div className="hero-content-section">
           <span className="text_3">Hi，👋我是 用界面讲故事、逻辑与视觉间寻找平衡的UI设计师</span>
-          <div className="frame_3465833">
+          <div className="frame_3465833" ref={frameRef}>
             <div className="rectangle_3464450">
               <span className="text_4">关于我：</span>
             </div>
