@@ -1475,3 +1475,9 @@ html {
   transition: transform 0.2s ease-out;
   transform: translate(var(--offset-x, 0px), var(--offset-y, 0px));
 }
+
+/* Hide edgeone watermark */
+#edgeone-watermark {
+  display: none !important;
+  visibility: hidden !important;
+}
