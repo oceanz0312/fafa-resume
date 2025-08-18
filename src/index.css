@@ -533,7 +533,7 @@ body {
   height: 270px;
   border-radius: 20px;
 
-  background-image: url("../public/image/cursor-hover.png");
+  background-image: url("../public/image/hover-product-1.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -561,7 +561,7 @@ body {
   width: 480px;
   height: 270px;
   border-radius: 20px;
-  background-image: url("../public/image/cursor-hover.png");
+  background-image: url("../public/image/hover-product-1.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -645,7 +645,7 @@ body {
   width: 480px;
   height: 270px;
   border-radius: 20px;
-  background-image: url("../public/image/cursor-hover.png");
+  background-image: url("../public/image/hover-product-2.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -673,7 +673,7 @@ body {
   width: 480px;
   height: 270px;
   border-radius: 20px;
-  background-image: url("../public/image/cursor-hover.png");
+  background-image: url("../public/image/hover-product-2.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
