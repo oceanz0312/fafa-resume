@@ -1,0 +1,156 @@
+/* 全屏产品图片展示样式 */
+.fullscreen-product {
+  background-color: #000;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 90px;
+  padding-bottom: 80px;
+}
+
+.product-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.simple-back-button {
+  position: fixed;
+  top: 22px;
+  left: 30px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  padding: 12px 24px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: PingFang SC;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.product-title-header {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: PingFang SC;
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0;
+  text-align: center;
+}
+
+.simple-back-button:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 1);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.fullscreen-image {
+  max-width: 1080px;
+  width: 1080px;
+  height: auto;
+  object-fit: contain;
+}
+
+.simple-loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: PingFang SC;
+  font-size: 18px;
+}
+
+.simple-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid #ff825f;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.simple-error {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: PingFang SC;
+  font-size: 18px;
+}
+
+.simple-error button {
+  background: linear-gradient(154.92deg, #ffdfcc 37.76%, #ff825f 92.11%);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: #1c1c1c;
+  font-family: PingFang SC;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.simple-error button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 130, 95, 0.3);
+}
+
+.simple-next-button {
+  position: relative;
+  margin-top: 40px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  padding: 12px 24px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: PingFang SC;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.simple-next-button:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 1);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}

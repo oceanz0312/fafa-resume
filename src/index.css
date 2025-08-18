@@ -507,230 +507,223 @@ body {
   line-height: 22px;
   position: relative;
 }
-.flexcontainer_1 {
-  z-index: 4;
+
+/* 通用项目容器样式 */
+.project-container {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   width: 1100px;
   height: 131px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  position: relative;
+  border-bottom: 0.25px solid rgba(255, 255, 255, 0.4);
+}
+
+.project-container:hover {
+  cursor: none;
+}
+
+/* 通用项目标签样式 */
+.project-tag {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 57px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 51px;
+  margin: 0 auto;
+  margin-top: -91px;
+  display: flex;
+  position: relative;
+  z-index: 10;
+}
+
+.project-tag:hover {
+  cursor: none;
+}
+
+/* 通用项目标题文本样式 */
+.project-title {
+  color: #fff;
+  white-space: pre;
+  margin: 0;
+  font-family: PingFang SC;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 34px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* 通用项目类型文本样式 */
+.project-type {
+  color: rgba(255, 255, 255, 0.4);
+  white-space: pre;
+  margin: 0;
+  font-family: PingFang SC;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 39px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* 通用项目标签文本样式 */
+.project-tag-text {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.4);
+  white-space: pre;
+  width: max-content;
+  margin: 0;
+  font-family: PingFang SC;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 39px;
+  position: relative;
+}
+
+/* 项目特定样式修饰符 */
+.project-container--first {
   margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  position: relative;
-  border-bottom: 0.25px solid rgba(255, 255, 255, 0.4);
+  z-index: 4;
 }
 
-.flexcontainer_1:hover {
-  cursor: none;
-}
-
-.flexcontainer_1:hover::after {
-  content: "";
-  position: fixed;
-  width: 480px;
-  height: 270px;
-  border-radius: 20px;
-
-  background-image: url(../public/image/hover-bg-1.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  pointer-events: none;
-  z-index: 9999;
-  left: var(--mouse-x, 0px);
-  top: var(--mouse-y, 0px);
-  transform: translate(-50%, -50%);
-  transition: all 0.1s ease-out;
-}
-
-/* 为绝对定位的按钮提供空间 */
-.flexcontainer_1 .rectangle_3464452_1 {
-  z-index: 10;
-}
-
-/* 为 rectangle_3464452_1 添加hover cursor效果 */
-.rectangle_3464452_1:hover {
-  cursor: none;
-}
-
-.rectangle_3464452_1:hover::after {
-  content: "";
-  position: fixed;
-  width: 480px;
-  height: 270px;
-  border-radius: 20px;
-  background-image: url(../public/image/hover-bg-1.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  pointer-events: none;
-  z-index: 9999;
-  left: var(--mouse-x, 0px);
-  top: var(--mouse-y, 0px);
-  transform: translate(-50%, -50%);
-  transition: all 0.1s ease-out;
-}
-.text_14 {
-  color: #fff;
-  white-space: pre;
-  margin: 0;
-  font-family: PingFang SC;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 34px;
-  position: relative;
-  flex-shrink: 0;
-}
-.rectangle_3464452_1 {
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 57px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 204px;
-  height: 51px;
-  margin: 0 auto;
-  margin-top: -91px;
-  display: flex;
-  position: relative;
-  z-index: 10;
-}
-.text_15 {
-  text-align: center;
-  color: rgba(255, 255, 255, 0.4);
-  white-space: pre;
-  width: max-content;
-  margin: 0;
-  font-family: PingFang SC;
-  font-size: 28px;
-  font-weight: 400;
-  line-height: 39px;
-  position: relative;
-}
-.text_16 {
-  color: rgba(255, 255, 255, 0.4);
-  white-space: pre;
-  margin: 0;
-  font-family: PingFang SC;
-  font-size: 28px;
-  font-weight: 400;
-  line-height: 39px;
-  position: relative;
-  flex-shrink: 0;
-}
-.flexcontainer_2 {
+.project-container--second {
+  margin-top: 40px;
   z-index: 1;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 1100px;
-  height: 131px;
-  margin-top: 73px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  position: relative;
-  border-bottom: 0.25px solid rgba(255, 255, 255, 0.4);
 }
 
-.flexcontainer_2:hover {
-  cursor: none;
+.project-container--third {
+  margin-top: 40px;
+  z-index: 1;
 }
 
-.flexcontainer_2:hover::after {
-  content: "";
-  position: fixed;
-  width: 480px;
-  height: 270px;
-  border-radius: 20px;
-  background-image: url(../public/image/hover-bg-2.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  pointer-events: none;
-  z-index: 9999;
-  left: var(--mouse-x, 0px);
-  top: var(--mouse-y, 0px);
-  transform: translate(-50%, -50%);
-  transition: all 0.1s ease-out;
+.project-tag--narrow {
+  width: 204px;
 }
 
-/* 为绝对定位的按钮提供空间 */
-.flexcontainer_2 .rectangle_3464480 {
-  z-index: 10;
-}
-
-/* 为 rectangle_3464480 添加hover cursor效果 */
-.rectangle_3464480:hover {
-  cursor: none;
-}
-
-.rectangle_3464480:hover::after {
-  content: "";
-  position: fixed;
-  width: 480px;
-  height: 270px;
-  border-radius: 20px;
-  background-image: url(../public/image/hover-bg-2.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  pointer-events: none;
-  z-index: 9999;
-  left: var(--mouse-x, 0px);
-  top: var(--mouse-y, 0px);
-  transform: translate(-50%, -50%);
-  transition: all 0.1s ease-out;
-}
-.text_17 {
-  color: #fff;
-  white-space: pre;
-  margin: 0;
-  font-family: PingFang SC;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 34px;
-  position: relative;
-  flex-shrink: 0;
-}
-.text_18 {
-  color: rgba(255, 255, 255, 0.4);
-  white-space: pre;
-  margin: 0;
-  font-family: PingFang SC;
-  font-size: 28px;
-  font-weight: 400;
-  line-height: 39px;
-  position: relative;
-  flex-shrink: 0;
-}
-.rectangle_3464480 {
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 57px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.project-tag--medium {
   width: 284px;
-  height: 51px;
-  margin: 0 auto;
-  margin-top: -91px;
-  display: flex;
-  position: relative;
-  z-index: 10;
 }
-.text_19 {
-  text-align: center;
-  color: rgba(255, 255, 255, 0.4);
-  white-space: pre;
-  width: max-content;
-  margin: 0;
-  font-family: PingFang SC;
-  font-size: 28px;
-  font-weight: 400;
-  line-height: 39px;
-  position: relative;
+
+.project-tag--small {
+  width: 140px;
+}
+
+.project-container--first:hover::after {
+  content: "";
+  position: fixed;
+  width: 480px;
+  height: 270px;
+  border-radius: 20px;
+  background-image: url(../public/image/hover-bg-1.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  z-index: 9999;
+  left: var(--mouse-x, 0px);
+  top: var(--mouse-y, 0px);
+  transform: translate(-50%, -50%);
+  transition: all 0.1s ease-out;
+}
+
+.project-container--second:hover::after {
+  content: "";
+  position: fixed;
+  width: 480px;
+  height: 270px;
+  border-radius: 20px;
+  background-image: url(../public/image/hover-bg-2.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  z-index: 9999;
+  left: var(--mouse-x, 0px);
+  top: var(--mouse-y, 0px);
+  transform: translate(-50%, -50%);
+  transition: all 0.1s ease-out;
+}
+
+.project-container--third:hover::after {
+  content: "";
+  position: fixed;
+  width: 480px;
+  height: 270px;
+  border-radius: 20px;
+  background-image: url(../public/image/hover-bg-3.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  z-index: 9999;
+  left: var(--mouse-x, 0px);
+  top: var(--mouse-y, 0px);
+  transform: translate(-50%, -50%);
+  transition: all 0.1s ease-out;
+}
+
+.project-tag--narrow:hover::after {
+  content: "";
+  position: fixed;
+  width: 480px;
+  height: 270px;
+  border-radius: 20px;
+  background-image: url(../public/image/hover-bg-1.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  z-index: 9999;
+  left: var(--mouse-x, 0px);
+  top: var(--mouse-y, 0px);
+  transform: translate(-50%, -50%);
+  transition: all 0.1s ease-out;
+}
+
+.project-tag--medium:hover::after {
+  content: "";
+  position: fixed;
+  width: 480px;
+  height: 270px;
+  border-radius: 20px;
+  background-image: url(../public/image/hover-bg-2.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  z-index: 9999;
+  left: var(--mouse-x, 0px);
+  top: var(--mouse-y, 0px);
+  transform: translate(-50%, -50%);
+  transition: all 0.1s ease-out;
+}
+
+.project-tag--small:hover::after {
+  content: "";
+  position: fixed;
+  width: 480px;
+  height: 270px;
+  border-radius: 20px;
+  background-image: url(../public/image/hover-bg-3.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  z-index: 9999;
+  left: var(--mouse-x, 0px);
+  top: var(--mouse-y, 0px);
+  transform: translate(-50%, -50%);
+  transition: all 0.1s ease-out;
+}
+
+/* 确保按钮层级 */
+.project-container .project-tag {
+  z-index: 10;
 }
 .frame_3466406 {
   isolation: isolate;
@@ -739,7 +732,7 @@ body {
   align-items: flex-start;
   width: 1100px;
   height: 759px;
-  margin-top: 146px;
+  margin-top: 170px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -1027,10 +1020,10 @@ body {
 .rectangle_3464470 {
   z-index: 0;
   background-color: #ff9b7d;
-  width: 350px;
+  width: 330px;
   height: 4px;
   margin-top: -14px;
-  margin-left: 142px;
+  margin-left: 130px;
   position: relative;
 }
 .flexcontainer_8 {
@@ -1173,10 +1166,10 @@ body {
 .rectangle_3464469 {
   z-index: 0;
   background-color: #ff9b7d;
-  width: 253px;
+  width: 246px;
   height: 4px;
   margin-top: -14px;
-  margin-left: 143px;
+  margin-left: 130px;
   position: relative;
 }
 /* 工作经验列表 - 使用语义化 ul/li 标签 */
@@ -1268,8 +1261,9 @@ body {
   );
   border: 1px solid #fff;
   border-radius: 30px;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   width: 118px;
   height: 31.5px;
   margin: 0;
@@ -1279,12 +1273,8 @@ body {
 .text_37 {
   color: #fff;
   white-space: pre;
-  margin-top: 8px;
-  margin-left: 18px;
   font-family: Trash;
   font-size: 18px;
-  font-weight: 375;
-  line-height: 18px;
   position: relative;
 }
 .text_38 {
