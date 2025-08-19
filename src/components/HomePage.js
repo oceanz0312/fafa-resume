@@ -6,6 +6,24 @@ const HomePage = () => {
   const frameRef = useRef(null);
   const navigate = useNavigate();
 
+  // 预加载所有产品图片
+  const preloadImages = () => {
+    console.log('开始预加载产品图片...');
+    Object.values(productConfig).forEach((product, index) => {
+      // 预加载预览图
+      const previewImg = new Image();
+      previewImg.onload = () => console.log(`预览图 ${index + 1} 预加载完成:`, product.previewImage);
+      previewImg.onerror = () => console.error(`预览图 ${index + 1} 预加载失败:`, product.previewImage);
+      previewImg.src = product.previewImage;
+
+      // 预加载原图
+      const fullImg = new Image();
+      fullImg.onload = () => console.log(`原图 ${index + 1} 预加载完成:`, product.image);
+      fullImg.onerror = () => console.error(`原图 ${index + 1} 预加载失败:`, product.image);
+      fullImg.src = product.image;
+    });
+  };
+
   useEffect(() => {
     const handleMouseMove = (e) => {
       document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
@@ -13,6 +31,9 @@ const HomePage = () => {
     };
 
     document.addEventListener('mousemove', handleMouseMove);
+
+    // 开始预加载所有产品图片
+    preloadImages();
 
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
@@ -100,6 +121,28 @@ const HomePage = () => {
     navigate(`/product/${productId}`);
   };
 
+  const handleResumeClick = () => {
+    // 创建一个隐藏的a标签
+    const link = document.createElement('a');
+
+    // 设置PDF文件的路径（根据实际文件位置调整）
+    // 注意：如果是React/Vue等框架，public目录下的文件应使用绝对路径
+    link.href = '/public/resume.pdf'; // 例如public目录下的resume.pdf
+
+    // 指定下载后的文件名（可选，不设置则使用原文件名）
+    link.download = '我的简历.pdf';
+
+    // 将a标签添加到页面
+    document.body.appendChild(link);
+
+    // 触发点击事件开始下载
+    link.click();
+
+    // 下载完成后移除a标签
+    document.body.removeChild(link);
+    // navigate(`/resume`);
+  }
+
   return (
     <div className="desktop_1">
       <div className="div_27230_1">
@@ -112,9 +155,9 @@ const HomePage = () => {
           </div>
           <span className="text">FangBoya</span>
           <div className="frame_3466408">
-            <span className="text_1">作品集</span>
+            <span className="text_1" onClick={() => handleProjectClick(1)}>作品集</span>
             <div className="frame_3466405">
-              <span className="text_2">我的简历</span>
+              <span className="text_2" onClick={handleResumeClick}>我的简历</span>
               <img
                 className="arrow_18"
                 src="/image/arrow-dropdown.png"
@@ -178,20 +221,22 @@ const HomePage = () => {
         />
         <span className="text_13">点击查看近期项目</span>
       </div>
-      {Object.entries(productConfig).map(([id, product]) => (
-        <React.Fragment key={id}>
-          <div
-            className={`project-container ${product.containerClass}`}
-            onClick={() => handleProjectClick(parseInt(id))}
-          >
-            <span className="project-title">{product.title}</span>
-            <span className="project-type">{product.type}</span>
-          </div>
-          <div className={`project-tag ${product.tagClass}`} onClick={() => handleProjectClick(parseInt(id))}>
-            <span className="project-tag-text">{product.tag}</span>
-          </div>
-        </React.Fragment>
-      ))}
+      {
+        Object.entries(productConfig).map(([id, product]) => (
+          <React.Fragment key={id}>
+            <div
+              className={`project-container ${product.containerClass}`}
+              onClick={() => handleProjectClick(parseInt(id))}
+            >
+              <span className="project-title">{product.title}</span>
+              <span className="project-type">{product.type}</span>
+            </div>
+            <div className={`project-tag ${product.tagClass}`} onClick={() => handleProjectClick(parseInt(id))}>
+              <span className="project-tag-text">{product.tag}</span>
+            </div>
+          </React.Fragment>
+        ))
+      }
 
       <div className="frame_3466406">
         <div className="flexcontainer_3">
@@ -296,7 +341,7 @@ const HomePage = () => {
           <span className="text_39">fangboya366@gmail.com</span>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

@@ -61,11 +61,42 @@
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
+/* 图片容器 */
+.image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .fullscreen-image {
-  max-width: 1080px;
-  width: 1080px;
+  max-width: 900px;
+  width: 900px;
   height: auto;
   object-fit: contain;
+}
+
+/* 预览图样式 */
+.preview-image {
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}
+
+.preview-image.fade-out {
+  opacity: 0;
+}
+
+/* 原图样式 */
+.full-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease;
+  opacity: 0;
+}
+
+.full-image.fade-in {
+  opacity: 1;
 }
 
 .simple-loading {

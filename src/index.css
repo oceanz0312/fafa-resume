@@ -8,6 +8,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  cursor: pointer;
 }
 .flex-row {
   flex-direction: row;
@@ -156,6 +157,7 @@ body {
   font-weight: 400;
   line-height: 22px;
   position: relative;
+  cursor: pointer;
 }
 .frame_3466405 {
   color: #fff;
@@ -171,6 +173,7 @@ body {
   line-height: 22px;
   display: flex;
   position: relative;
+  cursor: pointer;
 }
 .text_2 {
   flex-shrink: 0;
@@ -362,7 +365,6 @@ body {
 .ellipse_3466 {
   z-index: 8;
   background-color: #fff;
-  border: 1px solid #1c1c1c;
   border-radius: 50%;
   flex-direction: column;
   align-items: flex-start;
@@ -514,16 +516,17 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 1100px;
-  height: 131px;
+  height: 150px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   position: relative;
   border-bottom: 0.25px solid rgba(255, 255, 255, 0.4);
+  z-index: 100;
+  cursor: pointer;
 }
 
 .project-container:hover {
-  cursor: none;
 }
 
 /* 通用项目标签样式 */
@@ -535,10 +538,9 @@ body {
   justify-content: center;
   height: 51px;
   margin: 0 auto;
-  margin-top: -91px;
+  margin-top: -96px;
   display: flex;
   position: relative;
-  z-index: 10;
 }
 
 .project-tag:hover {
@@ -556,6 +558,35 @@ body {
   line-height: 34px;
   flex-shrink: 0;
   position: relative;
+  transition: transform 0.3s ease;
+}
+
+.project-container:hover .project-title {
+  transform: translateX(25px);
+}
+
+.project-container:hover .project-title::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: #ffd700;
+  border-radius: 50%;
+  animation: slideInFromLeft 0.3s ease;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
 }
 
 /* 通用项目类型文本样式 */
@@ -610,14 +641,14 @@ body {
 }
 
 .project-tag--small {
-  width: 140px;
+  width: 150px;
 }
 
 .project-container--first:hover::after {
   content: "";
   position: fixed;
-  width: 480px;
-  height: 270px;
+  width: 320px;
+  height: 180px;
   border-radius: 20px;
   background-image: url(../public/image/hover-bg-1.png);
   background-size: contain;
@@ -634,8 +665,8 @@ body {
 .project-container--second:hover::after {
   content: "";
   position: fixed;
-  width: 480px;
-  height: 270px;
+  width: 320px;
+  height: 180px;
   border-radius: 20px;
   background-image: url(../public/image/hover-bg-2.png);
   background-size: contain;
@@ -646,14 +677,14 @@ body {
   left: var(--mouse-x, 0px);
   top: var(--mouse-y, 0px);
   transform: translate(-50%, -50%);
-  transition: all 0.1s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 .project-container--third:hover::after {
   content: "";
   position: fixed;
-  width: 480px;
-  height: 270px;
+  width: 320px;
+  height: 180px;
   border-radius: 20px;
   background-image: url(../public/image/hover-bg-3.jpg);
   background-size: contain;
@@ -664,14 +695,15 @@ body {
   left: var(--mouse-x, 0px);
   top: var(--mouse-y, 0px);
   transform: translate(-50%, -50%);
-  transition: all 0.1s ease-out;
+  transition: all 0.2s ease-out;
 }
+*/
 
-.project-tag--narrow:hover::after {
+/* .project-tag--narrow:hover::after {
   content: "";
   position: fixed;
-  width: 480px;
-  height: 270px;
+  width: 320px;
+  height: 180px;
   border-radius: 20px;
   background-image: url(../public/image/hover-bg-1.png);
   background-size: contain;
@@ -682,14 +714,14 @@ body {
   left: var(--mouse-x, 0px);
   top: var(--mouse-y, 0px);
   transform: translate(-50%, -50%);
-  transition: all 0.1s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 .project-tag--medium:hover::after {
   content: "";
   position: fixed;
-  width: 480px;
-  height: 270px;
+  width: 320px;
+  height: 180px;
   border-radius: 20px;
   background-image: url(../public/image/hover-bg-2.png);
   background-size: contain;
@@ -700,14 +732,14 @@ body {
   left: var(--mouse-x, 0px);
   top: var(--mouse-y, 0px);
   transform: translate(-50%, -50%);
-  transition: all 0.1s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 .project-tag--small:hover::after {
   content: "";
   position: fixed;
-  width: 480px;
-  height: 270px;
+  width: 320px;
+  height: 180px;
   border-radius: 20px;
   background-image: url(../public/image/hover-bg-3.jpg);
   background-size: contain;
@@ -718,12 +750,12 @@ body {
   left: var(--mouse-x, 0px);
   top: var(--mouse-y, 0px);
   transform: translate(-50%, -50%);
-  transition: all 0.1s ease-out;
-}
+  transition: all 0.2s ease-out;
+} */
 
 /* 确保按钮层级 */
 .project-container .project-tag {
-  z-index: 10;
+  /* z-index: 10; */
 }
 .frame_3466406 {
   isolation: isolate;
@@ -1378,7 +1410,7 @@ body {
 
 /* Ensure smooth scrolling */
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 }
 
 /* ========================================

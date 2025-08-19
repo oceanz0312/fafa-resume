@@ -6,7 +6,9 @@ import { productConfig } from '../config';
 const ProductPage = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
-  const [imageLoading, setImageLoading] = useState(true);
+  const [previewLoading, setPreviewLoading] = useState(true);
+  const [fullImageLoading, setFullImageLoading] = useState(true);
+  const [fullImageLoaded, setFullImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
 
   const currentProduct = productConfig[productId];
@@ -17,12 +19,18 @@ const ProductPage = () => {
     }
   }, [currentProduct, navigate]);
 
-  const handleImageLoad = () => {
-    setImageLoading(false);
+  const handlePreviewLoad = () => {
+    setPreviewLoading(false);
+  };
+
+  const handleFullImageLoad = () => {
+    setFullImageLoading(false);
+    setFullImageLoaded(true);
   };
 
   const handleImageError = () => {
-    setImageLoading(false);
+    setPreviewLoading(false);
+    setFullImageLoading(false);
     setImageError(true);
   };
 
@@ -36,9 +44,13 @@ const ProductPage = () => {
     const currentIndex = productIds.indexOf(currentId);
     const nextIndex = (currentIndex + 1) % productIds.length;
     const nextId = productIds[nextIndex];
+
+    navigate(`/product/${nextId}`, { replace: true });
     // 滚动到页面顶部
-    window.scrollTo(0, 0);
-    navigate(`/product/${nextId}`);
+    window.scrollTo({
+      top: 0,
+      behavior: 'auto' // 'auto' 表示无动画，'smooth' 表示有动画
+    });
   };
 
   if (!currentProduct) {
@@ -53,31 +65,44 @@ const ProductPage = () => {
         </button>
         <h1 className="product-title-header">{currentProduct.title}</h1>
       </div>
-      
-      {imageLoading && (
+
+      {previewLoading && (
         <div className="simple-loading">
           <div className="simple-spinner"></div>
           <span>加载中...</span>
         </div>
       )}
-      
+
       {imageError ? (
         <div className="simple-error">
           <span>图片加载失败</span>
           <button onClick={() => window.location.reload()}>重试</button>
         </div>
       ) : (
-        <img
-          src={currentProduct.image}
-          alt="Product"
-          className="fullscreen-image"
-          onLoad={handleImageLoad}
-          onError={handleImageError}
-          style={{ display: imageLoading ? 'none' : 'block' }}
-        />
+        <div className="image-container">
+          {/* 预览图 - 快速加载显示 */}
+          <img
+            src={currentProduct.previewImage}
+            alt="Product Preview"
+            className={`fullscreen-image preview-image ${fullImageLoaded ? 'fade-out' : ''}`}
+            onLoad={handlePreviewLoad}
+            onError={handleImageError}
+            style={{ display: previewLoading ? 'none' : 'block' }}
+          />
+
+          {/* 原图 - 后台加载 */}
+          <img
+            src={currentProduct.image}
+            alt="Product"
+            className={`fullscreen-image full-image ${fullImageLoaded ? 'fade-in' : ''}`}
+            onLoad={handleFullImageLoad}
+            onError={handleImageError}
+            style={{ display: fullImageLoaded ? 'block' : 'none' }}
+          />
+        </div>
       )}
-      
-      {!imageLoading && (
+
+      {!previewLoading && (
         <button className="simple-next-button" onClick={handleNextClick}>
           下一个作品 →
         </button>
