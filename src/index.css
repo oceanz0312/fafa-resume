@@ -697,61 +697,6 @@ body {
   transform: translate(-50%, -50%);
   transition: all 0.2s ease-out;
 }
-*/
-
-/* .project-tag--narrow:hover::after {
-  content: "";
-  position: fixed;
-  width: 320px;
-  height: 180px;
-  border-radius: 20px;
-  background-image: url(../public/image/hover-bg-1.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  pointer-events: none;
-  z-index: 9999;
-  left: var(--mouse-x, 0px);
-  top: var(--mouse-y, 0px);
-  transform: translate(-50%, -50%);
-  transition: all 0.2s ease-out;
-}
-
-.project-tag--medium:hover::after {
-  content: "";
-  position: fixed;
-  width: 320px;
-  height: 180px;
-  border-radius: 20px;
-  background-image: url(../public/image/hover-bg-2.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  pointer-events: none;
-  z-index: 9999;
-  left: var(--mouse-x, 0px);
-  top: var(--mouse-y, 0px);
-  transform: translate(-50%, -50%);
-  transition: all 0.2s ease-out;
-}
-
-.project-tag--small:hover::after {
-  content: "";
-  position: fixed;
-  width: 320px;
-  height: 180px;
-  border-radius: 20px;
-  background-image: url(../public/image/hover-bg-3.jpg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  pointer-events: none;
-  z-index: 9999;
-  left: var(--mouse-x, 0px);
-  top: var(--mouse-y, 0px);
-  transform: translate(-50%, -50%);
-  transition: all 0.2s ease-out;
-} */
 
 /* 确保按钮层级 */
 .project-container .project-tag {
@@ -1406,11 +1351,6 @@ body {
 .desktop_1 {
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.1);
-}
-
-/* Ensure smooth scrolling */
-html {
-  /* scroll-behavior: smooth; */
 }
 
 /* ========================================
