@@ -121,13 +121,18 @@ const HomePage = () => {
     navigate(`/product/${productId}`);
   };
 
+
   const handleResumeClick = () => {
+    window.open('/resume.pdf', '_blank');
+  }
+
+  const handleResumeClick1 = () => {
     // 创建一个隐藏的a标签
     const link = document.createElement('a');
 
     // 设置PDF文件的路径（根据实际文件位置调整）
     // 注意：如果是React/Vue等框架，public目录下的文件应使用绝对路径
-    link.href = '/public/resume.pdf'; // 例如public目录下的resume.pdf
+    link.href = '/resume.pdf'; // public目录下的resume.pdf在构建后位于根路径
 
     // 指定下载后的文件名（可选，不设置则使用原文件名）
     link.download = '我的简历.pdf';
