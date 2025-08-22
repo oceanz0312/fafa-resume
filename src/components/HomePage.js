@@ -161,8 +161,8 @@ const HomePage = () => {
           <span className="text">FangBoya</span>
           <div className="frame_3466408">
             <span className="text_1" onClick={() => handleProjectClick(1)}>作品集</span>
-            <div className="frame_3466405">
-              <span className="text_2" onClick={handleResumeVisit}>我的简历</span>
+            <div className="frame_3466405" onClick={handleResumeVisit}>
+              <span className="text_2">我的简历</span>
               <img
                 className="arrow_18"
                 src="/image/arrow-dropdown.png"
