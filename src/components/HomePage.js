@@ -122,11 +122,11 @@ const HomePage = () => {
   };
 
 
-  const handleResumeClick = () => {
+  const handleResumeClick1 = () => {
     window.open('/resume.pdf', '_blank');
   }
 
-  const handleResumeClick1 = () => {
+  const handleResumeClick = () => {
     // 创建一个隐藏的a标签
     const link = document.createElement('a');
 
