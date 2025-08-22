@@ -122,11 +122,11 @@ const HomePage = () => {
   };
 
 
-  const handleResumeClick1 = () => {
+  const handleResumeVisit = () => {
     window.open('/resume.pdf', '_blank');
   }
 
-  const handleResumeClick = () => {
+  const handleResumeDownload = () => {
     // 创建一个隐藏的a标签
     const link = document.createElement('a');
 
@@ -162,7 +162,7 @@ const HomePage = () => {
           <div className="frame_3466408">
             <span className="text_1" onClick={() => handleProjectClick(1)}>作品集</span>
             <div className="frame_3466405">
-              <span className="text_2" onClick={handleResumeClick}>我的简历</span>
+              <span className="text_2" onClick={handleResumeVisit}>我的简历</span>
               <img
                 className="arrow_18"
                 src="/image/arrow-dropdown.png"
